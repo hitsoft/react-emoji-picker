@@ -10,8 +10,8 @@ function touchDevice() {
 
 var tabWrapStyle = {
   display: 'block',
-  borderBottom: '1px solid silver',
-}
+  borderBottom: '1px solid silver'
+};
 
 var tabStyle = {
   marginRight: '0.4rem',
@@ -22,8 +22,8 @@ var tabStyle = {
   borderRadius: '0.3rem 0.3rem 0 0',
   cursor: 'pointer',
   position: 'relative',
-  top: 2,
-}
+  top: 2
+};
 
 var activeTabStyle = {};
 for (var key in tabStyle) {
@@ -35,8 +35,8 @@ var bodyStyle = {
   display: 'block',
   margin: '0.3em 0 0',
   maxHeight: '12.5em',
-  overflowY: 'scroll',
-}
+  overflowY: 'scroll'
+};
 
 function filterByName(opts) {
   return opts.emoji.name.match(opts.query)
@@ -51,7 +51,7 @@ module.exports = React.createClass({
   displayName: 'EmojiPicker',
   mixins: [ReactEmoji],
   propTypes: {
-    query: React.PropTypes.string,
+    query: React.PropTypes.string
   },
   getInitialState: function() {
     return {
@@ -70,7 +70,7 @@ module.exports = React.createClass({
   // if user presses Enter or Tab while EmojiPicker showing
   grabKeyPress: function(e) {
     if(e.keyCode === 13 || e.keyCode === 9) {
-      e.preventDefault()
+      e.preventDefault();
       this.selectFirst()
     }
   },
@@ -155,7 +155,7 @@ module.exports = React.createClass({
   },
 
   footer: function() {
-    if(this.state.hovered) {
+    if(this.state.hovered && !this.props.ignoreHovered) {
       return (
         React.createElement("span", null,
           this.state.hovered
@@ -181,4 +181,4 @@ module.exports = React.createClass({
       )
     )
   }
-})
+});
